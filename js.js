@@ -1,3 +1,5 @@
+"use strict";
+
 // ----Work 1
 // let testObj = {};
 // testObj.prop = "test property";
@@ -29,41 +31,41 @@
 // copiedObj.newProp.x = 100;
 // console.log(copiedObj["newProp"]);
 // console.log(newObj.newProp);
-// copyObj = [...Object.keys(copiedObj), ...Object.values(copiedObj)];
-// console.log(copiedObj);
+// const copyObj = [...Object.keys(copiedObj), ...Object.values(copiedObj)];
+// console.log(copyObj);
 // Object.keys(obj) – возвращает массив ключей.///
 // Object.values(obj) – возвращает массив значений.//
 
-// -------Work---2
+// // -------Work---2
 
-// function constructObject(
-//   objectName = "noName",
-//   objectNumber = 0,
-//   objectString = ""
-// ) {
-//   return {
-//     objectName: "noName",
-//     objectNumber: 0,
-//     objectString: "",
-//     greet: () => "Hello"
-//   };
-// }
-// const firstCreatedObject = constructObject();
-// const secondCreatedObject = constructObject("test", 10, "i'm a string");
-// const firstArr = [],
-//   secondArr = [];
+// // function constructObject(
+// //   objectName = "noName",
+// //   objectNumber = 0,
+// //   objectString = ""
+// // ) {
+// //   return {
+// //     objectName,
+// //     objectNumber,
+// //     objectString,
+// //     greet: () => "Hello"
+// //   };
+// // }
+// // const firstCreatedObject = constructObject();
+// // const secondCreatedObject = constructObject("test", 10, "i'm a string");
+// // const firstArr = [],
+// //   secondArr = [];
 
-// for (let key of Object.keys(firstCreatedObject)) {
-//   firstArr.push(firstCreatedObject[key]);
-// }
+// // for (let key of Object.keys(firstCreatedObject)) {
+// //   firstArr.push(firstCreatedObject[key]);
+// // }
 
-// for (let key of Object.keys(secondCreatedObject)) {
-//   secondArr.push(secondCreatedObject[key]);
-// }
+// // for (let key of Object.keys(secondCreatedObject)) {
+// //   secondArr.push(secondCreatedObject[key]);
+// // }
 
-// console.log(firstArr, secondArr);
+// // console.log(firstArr, secondArr);
 
-// ------Work-----3
+// // ------Work-----3
 
 const targetObj = {
   x: 1,
@@ -88,10 +90,10 @@ function deepCopy(obj) {
       //---Проверка на обьект
       if (Array.isArray(obj[key])) {
         //---Проверка являеться ли обьект массивом
-        cloneObj[key] = deepCopy(obj[key]);
-        //Если obj являеться обьектом то мы вызываем функцию deepCopy с вложеным обьектом и делаем ее копию.
+        cloneObj[key] = [...obj[key]];
       } else {
         cloneObj[key] = deepCopy(obj[key]);
+        //Если obj являеться обьектом то мы вызываем функцию deepCopy с вложеным обьектом и делаем ее копию.
       }
     } else {
       cloneObj[key] = obj[key];
