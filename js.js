@@ -105,6 +105,6 @@ function deepCopy(obj) {
 const copiedObj = deepCopy(targetObj);
 console.log(targetObj, copiedObj);
 
-targetObj.y.q.c.d.splice(0, 1, 100);
+targetObj.y.q.c.d[0] = 100;
 const areElementsEqual = targetObj.y.q.c.d[0] === copiedObj.y.q.c.d[0];
 console.log(areElementsEqual);
